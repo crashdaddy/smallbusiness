@@ -26,10 +26,13 @@ class Login extends Component {
         e.preventDefault()
         const newUser = {username: this.state.username, password: this.state.password };
         this.props.addUser(newUser);
+        document.cookie = "loggedIn=true;max-age=60*1000";
         this.setState({
             msgText: "You're now logged in!"
         })
       }
+
+      
 
     render(){
         return(

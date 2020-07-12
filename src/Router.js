@@ -30,7 +30,7 @@ const Router = () => {
         <Switch>
             <Route exact path="/" component = {Main} />
             <Route path="/listings" component = {Listings} />
-            <Route path="/addListing" component = {AddListing} />
+            <ProtectedRoute path="/addListing" component = {AddListing} />
             <Route path="/login" component={Login} />
             {/* <Route path="/login" component={Login} /> */}
             {/* <ProtectedRoute exact path="/" component={Home} /> */}

@@ -47,7 +47,6 @@ class Listings extends Component {
                     <Table>
                         <TableHead>
                             <TableRow>
-                                <TableCell>Id</TableCell>
                                 <TableCell>Name</TableCell>
                                 <TableCell>Description</TableCell>
                                 <TableCell>Hours</TableCell>
@@ -58,9 +57,6 @@ class Listings extends Component {
                         <TableBody>
                             {this.props.listings.map((listing, idx) => (
                                 <TableRow key={listing.id}>
-                                    <TableCell component="th" scope="row">
-                                        {listing.id}
-                                    </TableCell>
                                     <TableCell>{listing["name"]}</TableCell>
                                     <TableCell>{listing["description"]}</TableCell>
                                     <TableCell>{listing["hours"]}</TableCell>
