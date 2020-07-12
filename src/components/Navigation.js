@@ -16,6 +16,14 @@ const Navigation = (props) => {
                 <Typography variant="h6" style={{ flexGrow: "1" }}>
                     ATX Small Business
                 </Typography>
+                <Typography variant="h6" style={{ flexGrow: "1" }}>
+                {props.user ? 
+                <div>You're logged in as {props.user.username}</div>
+                :
+                <div>You should log in</div>
+                }
+                </Typography>
+                
                 <ul className="nav-list">
                     <li className="nav-list-item">
                         <Link to="/">Home</Link>
