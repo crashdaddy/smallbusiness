@@ -8,16 +8,18 @@ import {
     TableRow
 } from '@material-ui/core'
 import DeleteIcon from '@material-ui/icons/Delete'
-
+   let mymap=null;
 class Listings extends Component {
     constructor(props) {
         super(props)
 
     }
 
-    componentDidMount = () => {
+
+
+    startMap = () => {
         var L = window.L;
-        var mymap = L.map('mapid').setView([30.267, -97.743], 13);
+        mymap = L.map('mapid').setView([30.267, -97.743], 13);
         L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
             attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
             maxZoom: 18,
@@ -30,8 +32,27 @@ class Listings extends Component {
             var marker = L.marker([listing.latitude, listing.longitude]).addTo(mymap);
             marker.bindPopup(`<strong>${listing.name}</strong><br/>${listing.description}<br/>Hours: ${listing.hours}`).openPopup();
         })
-        
     }
+
+    updateMap= ()=> {
+        
+        // mymap.clearLayers()
+        // this.props.listings.forEach(listing => {
+        //     var marker = mymap.marker([listing.latitude, listing.longitude]).addTo(mymap);
+        //     marker.bindPopup(`<strong>${listing.name}</strong><br/>${listing.description}<br/>Hours: ${listing.hours}`).openPopup();
+        // })
+    }
+
+    componentDidMount = () => {
+ 
+        this.startMap()
+    }
+
+    componentDidUpdate = () => {
+        this.updateMap();
+    }
+
+
 
     render() {
 
