@@ -28,7 +28,7 @@ class Listings extends Component {
         }).addTo(mymap);
         this.props.listings.forEach(listing => {
             var marker = L.marker([listing.latitude, listing.longitude]).addTo(mymap);
-            marker.bindPopup(listing.description).openPopup();
+            marker.bindPopup(`<strong>${listing.name}</strong><br/>${listing.description}<br/>Hours: ${listing.hours}`).openPopup();
         })
         
     }
@@ -36,7 +36,8 @@ class Listings extends Component {
     render() {
 
         return (
-            <div>
+            <div style={{display:'flex',flexFlow:'row wrap',justifyContent:'space-around'}}>
+                <div style={{width:'40%'}}>
                 <Container maxWidth="lg" className="listing-container">
                     {this.props.user ?
                         <h4>Welcome, {this.props.user.username}</h4>
@@ -77,7 +78,7 @@ class Listings extends Component {
                         </TableBody>
                     </Table>
                 </Container>
-
+                </div>
                 <div id="mapid"></div>
             </div>
         )
